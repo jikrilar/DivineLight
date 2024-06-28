@@ -5,8 +5,8 @@
     <title>Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/auth.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/util.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/auth.css') }}">
 </head>
 
 <body>
@@ -32,11 +32,12 @@
                         <span class="focus-input100"></span>
                     </div>
 
-                    <div class="container-login100-form-btn">
+                    <div class="container-login100-form-btn" style="margin-bottom: 10px">
                         <button class="login100-form-btn" type="submit">
                             Login
                         </button>
                     </div>
+                    <p>Don't have account? <a href="{{ route('register') }}">Sign Up</a></p>
                 </form>
             </div>
         </div>

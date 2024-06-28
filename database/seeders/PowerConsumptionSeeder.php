@@ -14,7 +14,10 @@ class PowerConsumptionSeeder extends Seeder
     public function run(): void
     {
         PowerConsumption::create([
-            'power'
+            'power' => 1,
+            'current' => 1,
+            'voltage' => 1,
+            'energy' => 1
         ]);
     }
 }

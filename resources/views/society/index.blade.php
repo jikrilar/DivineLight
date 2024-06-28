@@ -5,7 +5,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <a href="{{ route('society.create') }} class="btn btn-primary">Buat</a>
+            <a href="{{ route('society.create') }}" class="btn btn-primary">Buat</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">

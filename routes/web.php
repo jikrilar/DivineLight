@@ -26,6 +26,9 @@ Route::get('/monitoring', [NodeMCUController::class, 'monitoring'])->name('monit
 Route::get('/sensorDataStore/{power}/{energy}/{voltage}/{current}', [NodeMCUController::class, 'sensorDataStore']);
 Route::get('/api/power-consumption', [NodeMCUController::class, 'getDataRealtime']);
 
+Route::middleware(['auth', 'role:technician'])->group(function () {
+    Route::put('/repair/update/{repair}', [RepairController::class, 'update'])->name('repair.update');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/repair', [RepairController::class, 'index'])->name('repair.index');
@@ -36,4 +39,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

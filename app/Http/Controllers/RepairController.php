@@ -39,7 +39,14 @@ class RepairController extends Controller
 
         $technician_name = User::where('id', $request->technician_id)->get();
 
-        Alert::success('Berhasil!', 'Teknisi '.$technician_name.' telah dipilih untuk melakukan perbaikan');
+        Alert::success('Berhasil!', 'Teknisi ' . $technician_name . ' telah dipilih untuk melakukan perbaikan');
         return redirect()->route('repair.index');
+    }
+
+    public function update($id)
+    {
+        Repair::where('id', $id)->update([
+            'status' => 'finished_repaired'
+        ]);
     }
 }

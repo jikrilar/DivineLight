@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Repair;
 use App\Models\Report;
 use App\Models\User;
+use App\Models\PowerConsumption;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     public function home()
     {
-        return view('home');
+        return view('home', [
+            'powerconsumption' => PowerConsumption::find(1)
+        ]);
     }
 
     public function dashboard()

@@ -22,6 +22,7 @@
                                 <th>Teknisi Yang Menangani</th>
                             @endif
                             <th>Status Perbaikan</th>
+                            <th>Ubah Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,6 +41,18 @@
                                         Telah Diperbaiki
                                     @endif
                                 </td>
+                                @if (Auth::user()->role == 'technician')
+                                    <td>
+                                        <form action="{{ route('repair.update', $repair->id) }}" method="POST">
+                                            @method('put')
+                                            @csrf
+                                            <button type="submit" class="btn btn-primary"
+                                                onclick="return confirm('Anda yakin kerusakan telah selesai diperbaiki? Status tidak dapat diubah kembali')"
+                                                @if ($repair->status == 'finished_repaired') disabled @endif>Selesai
+                                                Diperbaiki</button>
+                                        </form>
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>
